@@ -1,0 +1,400 @@
+net {
+  op {
+    name: "System-Main-WaitAndSendIds_60"
+    pass_tag: "main_op"
+    wait_and_send_ids_conf {
+      out: "out"
+      wait_buffer_name: "GlobalWaitJobId"
+      id_list {
+        value: 0
+        value: 1
+        value: 2
+      }
+      id_list {
+        value: 3
+        value: 4
+      }
+      id_list {
+        value: 5
+        value: 6
+      }
+      data_type: kInt32
+    }
+  }
+  op {
+    name: "System-Main-ReentrantLock_61"
+    reentrant_lock_conf {
+      start: "System-Main-WaitAndSendIds_60/out"
+      out: "out"
+      lock_id2intersecting_lock_ids {
+      }
+      lock_id2intersecting_lock_ids {
+        value: 4
+      }
+      lock_id2intersecting_lock_ids {
+        value: 6
+      }
+      lock_id2intersecting_lock_ids {
+      }
+      lock_id2intersecting_lock_ids {
+        value: 1
+      }
+      lock_id2intersecting_lock_ids {
+      }
+      lock_id2intersecting_lock_ids {
+        value: 2
+      }
+    }
+  }
+  op {
+    name: "System-Main-Case_62"
+    case_conf {
+      in: "System-Main-ReentrantLock_61/out"
+      out: "out_0"
+      out: "out_1"
+      out: "out_2"
+      out: "out_3"
+      out: "out_4"
+      out: "out_5"
+      out: "out_6"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_0_63"
+    tick_conf {
+      tick: "System-Main-Case_62/out_0"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_0_64"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_0_63/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_065"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_0_64/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_066"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_0_64/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_1_67"
+    tick_conf {
+      tick: "System-Main-Case_62/out_1"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_1_68"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_1_67/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_169"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_1_68/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_170"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_1_68/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_2_71"
+    tick_conf {
+      tick: "System-Main-Case_62/out_2"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_2_72"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_2_71/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_273"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_2_72/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_274"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_2_72/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_3_75"
+    tick_conf {
+      tick: "System-Main-Case_62/out_3"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_3_76"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_3_75/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_377"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_3_76/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_378"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_3_76/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_4_79"
+    tick_conf {
+      tick: "System-Main-Case_62/out_4"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_4_80"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_4_79/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_481"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_4_80/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_482"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_4_80/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_5_83"
+    tick_conf {
+      tick: "System-Main-Case_62/out_5"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_5_84"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_5_83/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_585"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_5_84/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_586"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_5_84/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SourceTick_CriticalSection_6_87"
+    tick_conf {
+      tick: "System-Main-Case_62/out_6"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Tick_CriticalSection_6_88"
+    tick_conf {
+      tick: "System-Main-SourceTick_CriticalSection_6_87/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackSinkTick_689"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_6_88/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-SinkTick_CriticalSection_690"
+    sink_tick_conf {
+      tick: "System-Main-Tick_CriticalSection_6_88/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Esac_91"
+    esac_conf {
+      in: "System-Main-SinkTick_CriticalSection_066/out"
+      in: "System-Main-SinkTick_CriticalSection_170/out"
+      in: "System-Main-SinkTick_CriticalSection_274/out"
+      in: "System-Main-SinkTick_CriticalSection_378/out"
+      in: "System-Main-SinkTick_CriticalSection_482/out"
+      in: "System-Main-SinkTick_CriticalSection_586/out"
+      in: "System-Main-SinkTick_CriticalSection_690/out"
+      out: "out"
+      data_type: kInt32
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotifier_CriticalSection_94"
+    sink_tick_conf {
+      tick: "System-Main-CallbackSinkTick_065/out"
+      tick: "System-Main-CallbackSinkTick_169/out"
+      tick: "System-Main-CallbackSinkTick_273/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotifier_CriticalSection_93"
+    pass_tag: "main_op"
+    sink_tick_conf {
+      tick: "System-Main-CallbackNotifier_CriticalSection_94/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotifier_CriticalSection_96"
+    sink_tick_conf {
+      tick: "System-Main-CallbackSinkTick_377/out"
+      tick: "System-Main-CallbackSinkTick_481/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotifier_CriticalSection_95"
+    pass_tag: "main_op"
+    sink_tick_conf {
+      tick: "System-Main-CallbackNotifier_CriticalSection_96/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotifier_CriticalSection_98"
+    sink_tick_conf {
+      tick: "System-Main-CallbackSinkTick_585/out"
+      tick: "System-Main-CallbackSinkTick_689/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotifier_CriticalSection_97"
+    pass_tag: "main_op"
+    sink_tick_conf {
+      tick: "System-Main-CallbackNotifier_CriticalSection_98/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-Main-Esac_92"
+    pass_tag: "main_op"
+    esac_conf {
+      in: "System-Main-CallbackNotifier_CriticalSection_93/out"
+      in: "System-Main-CallbackNotifier_CriticalSection_95/out"
+      in: "System-Main-CallbackNotifier_CriticalSection_97/out"
+      out: "out"
+      data_type: kInt32
+    }
+  }
+  op {
+    name: "System-Main-CallbackNotify_99"
+    pass_tag: "main_op"
+    callback_notify_conf {
+      in: "System-Main-Esac_92/out"
+      callback_buffer_name: "CallbackNotifier-eval_job"
+      callback_buffer_name: "CallbackNotifier-System-Push-Input_0"
+      callback_buffer_name: "CallbackNotifier-System-Pull-Return_1"
+    }
+  }
+}
+placement {
+  placement_group {
+    op_set {
+      op_name: "System-Main-WaitAndSendIds_60"
+      op_name: "System-Main-ReentrantLock_61"
+      op_name: "System-Main-Case_62"
+      op_name: "System-Main-SourceTick_CriticalSection_0_63"
+      op_name: "System-Main-Tick_CriticalSection_0_64"
+      op_name: "System-Main-CallbackSinkTick_065"
+      op_name: "System-Main-SinkTick_CriticalSection_066"
+      op_name: "System-Main-SourceTick_CriticalSection_1_67"
+      op_name: "System-Main-Tick_CriticalSection_1_68"
+      op_name: "System-Main-CallbackSinkTick_169"
+      op_name: "System-Main-SinkTick_CriticalSection_170"
+      op_name: "System-Main-SourceTick_CriticalSection_2_71"
+      op_name: "System-Main-Tick_CriticalSection_2_72"
+      op_name: "System-Main-CallbackSinkTick_273"
+      op_name: "System-Main-SinkTick_CriticalSection_274"
+      op_name: "System-Main-SourceTick_CriticalSection_3_75"
+      op_name: "System-Main-Tick_CriticalSection_3_76"
+      op_name: "System-Main-CallbackSinkTick_377"
+      op_name: "System-Main-SinkTick_CriticalSection_378"
+      op_name: "System-Main-SourceTick_CriticalSection_4_79"
+      op_name: "System-Main-Tick_CriticalSection_4_80"
+      op_name: "System-Main-CallbackSinkTick_481"
+      op_name: "System-Main-SinkTick_CriticalSection_482"
+      op_name: "System-Main-SourceTick_CriticalSection_5_83"
+      op_name: "System-Main-Tick_CriticalSection_5_84"
+      op_name: "System-Main-CallbackSinkTick_585"
+      op_name: "System-Main-SinkTick_CriticalSection_586"
+      op_name: "System-Main-SourceTick_CriticalSection_6_87"
+      op_name: "System-Main-Tick_CriticalSection_6_88"
+      op_name: "System-Main-CallbackSinkTick_689"
+      op_name: "System-Main-SinkTick_CriticalSection_690"
+      op_name: "System-Main-Esac_91"
+      op_name: "System-Main-CallbackNotifier_CriticalSection_94"
+      op_name: "System-Main-CallbackNotifier_CriticalSection_93"
+      op_name: "System-Main-CallbackNotifier_CriticalSection_96"
+      op_name: "System-Main-CallbackNotifier_CriticalSection_95"
+      op_name: "System-Main-CallbackNotifier_CriticalSection_98"
+      op_name: "System-Main-CallbackNotifier_CriticalSection_97"
+      op_name: "System-Main-Esac_92"
+      op_name: "System-Main-CallbackNotify_99"
+    }
+    parallel_conf {
+      device_name: "0:0"
+      device_tag: "cpu"
+    }
+  }
+}
+job_conf {
+  job_name: "MainJob-unamed"
+  predict_conf {
+  }
+  default_data_type: kInt32
+}
+job_parallel_view_conf {
+}

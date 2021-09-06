@@ -1,0 +1,128 @@
+job {
+  net {
+    op {
+      name: "Input_0"
+      device_tag: "cpu"
+      scope_symbol_id: 4611686018427416574
+      input_conf {
+        out: "out"
+        blob_conf {
+          shape {
+            dim: 1
+            dim: 1
+          }
+          data_type: kFloat
+          is_dynamic: false
+          parallel_distribution {
+            sbp_parallel {
+              split_parallel {
+                axis: 0
+              }
+            }
+          }
+        }
+      }
+    }
+    op {
+      name: "Return_1"
+      device_tag: "cpu"
+      scope_symbol_id: 4611686018427428862
+      return_conf {
+        in: "Input_0/out"
+        out: "out"
+      }
+    }
+  }
+  placement {
+    placement_group {
+      op_set {
+        op_name: "Input_0"
+        op_name: "Return_1"
+      }
+      parallel_conf {
+        device_name: "0:0-0"
+        device_tag: "cpu"
+        hierarchy {
+          dim: 1
+        }
+      }
+    }
+    blob_placement_group {
+      lbi {
+        op_name: "Input_0"
+        blob_name: "out"
+      }
+      lbi {
+        op_name: "Return_1"
+        blob_name: "out"
+      }
+      parallel_conf {
+        device_name: "0:0-0"
+        device_tag: "cpu"
+        hierarchy {
+          dim: 1
+        }
+      }
+    }
+  }
+  job_conf {
+    job_name: "eval_job"
+    predict_conf {
+    }
+  }
+  helper {
+    lbn2logical_blob_desc {
+      key: "Input_0/out"
+      value {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+      }
+    }
+    lbn2logical_blob_desc {
+      key: "Return_1/out"
+      value {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+      }
+    }
+    op_name2arg_signature {
+      key: "Input_0"
+      value {
+        bn_in_op2lbi {
+          key: "out"
+          value {
+            op_name: "Input_0"
+            blob_name: "out"
+          }
+        }
+      }
+    }
+    op_name2arg_signature {
+      key: "Return_1"
+      value {
+        bn_in_op2lbi {
+          key: "in"
+          value {
+            op_name: "Input_0"
+            blob_name: "out"
+          }
+        }
+        bn_in_op2lbi {
+          key: "out"
+          value {
+            op_name: "Return_1"
+            blob_name: "out"
+          }
+        }
+      }
+    }
+  }
+}

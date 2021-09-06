@@ -1,0 +1,236 @@
+task {
+  task_type: kSourceTick
+  machine_id: 0
+  thrd_id: 0
+  task_id: 0
+  job_id: 0
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kFloat
+        op_attribute {
+          output_bns: "out"
+          op_conf {
+            name: "Input_0"
+            device_tag: "cpu"
+            scope_symbol_id: 4611686018427416574
+            input_conf {
+              out: "out"
+              blob_conf {
+                shape {
+                  dim: 1
+                  dim: 1
+                }
+                data_type: kFloat
+                is_dynamic: false
+                parallel_distribution {
+                  sbp_parallel {
+                    split_parallel {
+                      axis: 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "Input_0"
+                blob_name: "out"
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                  dim: 1
+                }
+                data_type: kFloat
+                is_dynamic: false
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 0
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 0
+      producer_task_id: 0
+      consumer_task_id: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "Input_0"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+                dim: 1
+              }
+              data_type: kFloat
+              is_dynamic: false
+            }
+          }
+        }
+      }
+      mem_block_id: 0
+      mem_block_offset: 0
+    }
+  }
+}
+task {
+  task_type: kNormalForward
+  machine_id: 0
+  thrd_id: 0
+  task_id: 1
+  job_id: 0
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kFloat
+        op_attribute {
+          input_bns: "in"
+          output_bns: "out"
+          op_conf {
+            name: "Return_1"
+            device_tag: "cpu"
+            scope_symbol_id: 4611686018427428862
+            return_conf {
+              in: "Input_0/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "in"
+              value {
+                op_name: "Input_0"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "Return_1"
+                blob_name: "out"
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "in"
+              value {
+                shape {
+                  dim: 1
+                  dim: 1
+                }
+                data_type: kFloat
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                  dim: 1
+                }
+                data_type: kFloat
+                is_dynamic: false
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "in"
+        value: 0
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 1
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "__out"
+    value {
+      regst_desc_id: 1
+      producer_task_id: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "Return_1"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+                dim: 1
+              }
+              data_type: kFloat
+              is_dynamic: false
+            }
+          }
+        }
+      }
+      mem_block_id: 1
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 0
+    }
+  }
+}
+block_chunk_list {
+  mem_block {
+    mem_block_id: 1
+    job_id: 0
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    mem_size: 512
+    thrd_id_hint: 0
+  }
+  mem_block {
+    mem_block_id: 0
+    job_id: 0
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    mem_size: 512
+    thrd_id_hint: 0
+  }
+}

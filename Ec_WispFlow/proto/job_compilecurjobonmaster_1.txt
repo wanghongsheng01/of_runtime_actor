@@ -1,0 +1,1517 @@
+net {
+  op {
+    name: "System-Push-ForeignInput_2"
+    device_tag: "cpu"
+    foreign_input_conf {
+      tick: "System-AutoTick-Prepend-DeviceTick_28/out"
+      out: "out"
+      blob_conf {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+        parallel_distribution {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      ofblob_buffer_name: "ForeignInput-System-Push-Input_0"
+    }
+  }
+  op {
+    name: "Input_0"
+    device_tag: "cpu"
+    ctrl_in_op_name: "System-AutoTick-PrependTick_36"
+    output_conf {
+      in: "System-Push-ForeignInput_2/out"
+      out: "out"
+      blob_conf {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+        parallel_distribution {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op {
+    name: "System-AutoTick-Prepend-DeviceTick_28"
+    device_tag: "cpu"
+    device_tick_conf {
+      tick: "System-AutoTick-SrcSubsetTick_29/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-SrcSubsetTick_29"
+    src_subset_tick_conf {
+      in: "System-AutoTick-Tick_32/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-AppendDeviceTick_30"
+    ctrl_in_op_name: "Input_0"
+    device_tick_conf {
+      out: "out"
+      time_shape {
+        dim: 1
+        dim: 1
+      }
+    }
+  }
+  op {
+    name: "System-AutoTick-SourceTick_31"
+    source_tick_conf {
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-Tick_32"
+    tick_conf {
+      tick: "System-AutoTick-SourceTick_31/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-DstSubsetTick_33"
+    dst_subset_tick_conf {
+      in: "System-AutoTick-SrcSubsetTick_29/out"
+      in: "System-AutoTick-AppendDeviceTick_30/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-Tick_34"
+    tick_conf {
+      tick: "System-AutoTick-DstSubsetTick_33/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-SinkTick_35"
+    sink_tick_conf {
+      tick: "System-AutoTick-Tick_34/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-PrependTick_36"
+    tick_conf {
+      tick: "System-AutoTick-SrcSubsetTick_38/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-AppendDeviceTick_37"
+    ctrl_in_op_name: "Input_0"
+    device_tick_conf {
+      out: "out"
+      time_shape {
+        dim: 1
+        dim: 1
+      }
+    }
+  }
+  op {
+    name: "System-AutoTick-SrcSubsetTick_38"
+    src_subset_tick_conf {
+      in: "System-AutoTick-Tick_40/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-SourceTick_39"
+    source_tick_conf {
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-Tick_40"
+    tick_conf {
+      tick: "System-AutoTick-SourceTick_39/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-DstSubsetTick_41"
+    dst_subset_tick_conf {
+      in: "System-AutoTick-SrcSubsetTick_38/out"
+      in: "System-AutoTick-AppendDeviceTick_37/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-Tick_42"
+    tick_conf {
+      tick: "System-AutoTick-DstSubsetTick_41/out"
+      out: "out"
+    }
+  }
+  op {
+    name: "System-AutoTick-SinkTick_43"
+    sink_tick_conf {
+      tick: "System-AutoTick-Tick_42/out"
+      out: "out"
+    }
+  }
+}
+placement {
+  placement_group {
+    op_set {
+      op_name: "System-Push-ForeignInput_2"
+      op_name: "Input_0"
+      op_name: "System-AutoTick-Prepend-DeviceTick_28"
+      op_name: "System-AutoTick-SrcSubsetTick_29"
+      op_name: "System-AutoTick-AppendDeviceTick_30"
+      op_name: "System-AutoTick-SourceTick_31"
+      op_name: "System-AutoTick-Tick_32"
+      op_name: "System-AutoTick-DstSubsetTick_33"
+      op_name: "System-AutoTick-Tick_34"
+      op_name: "System-AutoTick-SinkTick_35"
+      op_name: "System-AutoTick-PrependTick_36"
+      op_name: "System-AutoTick-AppendDeviceTick_37"
+      op_name: "System-AutoTick-SrcSubsetTick_38"
+      op_name: "System-AutoTick-SourceTick_39"
+      op_name: "System-AutoTick-Tick_40"
+      op_name: "System-AutoTick-DstSubsetTick_41"
+      op_name: "System-AutoTick-Tick_42"
+      op_name: "System-AutoTick-SinkTick_43"
+    }
+    parallel_conf {
+      device_name: "0:0"
+      device_tag: "cpu"
+    }
+  }
+}
+job_conf {
+  job_name: "System-Push-Input_0"
+  predict_conf {
+  }
+  default_data_type: kFloat
+  flag_name2flag_value {
+    key: "__is_user_function__"
+    value {
+      at_bool: false
+    }
+  }
+}
+job_parallel_view_conf {
+  op_name2sbp_signature_conf {
+    key: "Input_0"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "in"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-AppendDeviceTick_30"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-AppendDeviceTick_37"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-DstSubsetTick_33"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "in_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "in_1"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-DstSubsetTick_41"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "in_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "in_1"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-Prepend-DeviceTick_28"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-PrependTick_36"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-SinkTick_35"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-SinkTick_43"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-SourceTick_31"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-SourceTick_39"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-SrcSubsetTick_29"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "in_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-SrcSubsetTick_38"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "in_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-Tick_32"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-Tick_34"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-Tick_40"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-AutoTick-Tick_42"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick_0"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2sbp_signature_conf {
+    key: "System-Push-ForeignInput_2"
+    value {
+      bn_in_op2sbp_parallel {
+        key: "out"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+      bn_in_op2sbp_parallel {
+        key: "tick"
+        value {
+          split_parallel {
+            axis: 0
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "Input_0"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "in"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-AppendDeviceTick_30"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-AppendDeviceTick_37"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-DstSubsetTick_33"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "in_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "in_1"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-DstSubsetTick_41"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "in_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "in_1"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-Prepend-DeviceTick_28"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-PrependTick_36"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-SinkTick_35"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-SinkTick_43"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-SourceTick_31"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-SourceTick_39"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-SrcSubsetTick_29"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "in_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-SrcSubsetTick_38"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "in_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-Tick_32"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-Tick_34"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-Tick_40"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-AutoTick-Tick_42"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick_0"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op_name2parallel_distribution_signature_conf {
+    key: "System-Push-ForeignInput_2"
+    value {
+      bn_in_op2parallel_distribution {
+        key: "out"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      bn_in_op2parallel_distribution {
+        key: "tick"
+        value {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+}
+helper {
+  lbn2logical_blob_desc {
+    key: "Input_0/out"
+    value {
+      shape {
+        dim: 1
+        dim: 1
+      }
+      data_type: kFloat
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-AppendDeviceTick_30/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-AppendDeviceTick_37/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-DstSubsetTick_33/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-DstSubsetTick_41/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-Prepend-DeviceTick_28/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-PrependTick_36/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-SinkTick_35/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-SinkTick_43/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-SourceTick_31/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-SourceTick_39/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-SrcSubsetTick_29/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-SrcSubsetTick_38/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-Tick_32/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-Tick_34/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-Tick_40/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-AutoTick-Tick_42/out"
+    value {
+      shape {
+        dim: 1
+      }
+      data_type: kUInt8
+      is_dynamic: false
+    }
+  }
+  lbn2logical_blob_desc {
+    key: "System-Push-ForeignInput_2/out"
+    value {
+      shape {
+        dim: 1
+        dim: 1
+      }
+      data_type: kFloat
+      is_dynamic: false
+    }
+  }
+  op_name2arg_signature {
+    key: "Input_0"
+    value {
+      bn_in_op2lbi {
+        key: "in"
+        value {
+          op_name: "System-Push-ForeignInput_2"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "Input_0"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-AppendDeviceTick_30"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-AppendDeviceTick_30"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-AppendDeviceTick_37"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-AppendDeviceTick_37"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-DstSubsetTick_33"
+    value {
+      bn_in_op2lbi {
+        key: "in_0"
+        value {
+          op_name: "System-AutoTick-SrcSubsetTick_29"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "in_1"
+        value {
+          op_name: "System-AutoTick-AppendDeviceTick_30"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-DstSubsetTick_33"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-DstSubsetTick_41"
+    value {
+      bn_in_op2lbi {
+        key: "in_0"
+        value {
+          op_name: "System-AutoTick-SrcSubsetTick_38"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "in_1"
+        value {
+          op_name: "System-AutoTick-AppendDeviceTick_37"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-DstSubsetTick_41"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-Prepend-DeviceTick_28"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-Prepend-DeviceTick_28"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-SrcSubsetTick_29"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-PrependTick_36"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-PrependTick_36"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-SrcSubsetTick_38"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-SinkTick_35"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-SinkTick_35"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-Tick_34"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-SinkTick_43"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-SinkTick_43"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-Tick_42"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-SourceTick_31"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-SourceTick_31"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-SourceTick_39"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-SourceTick_39"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-SrcSubsetTick_29"
+    value {
+      bn_in_op2lbi {
+        key: "in_0"
+        value {
+          op_name: "System-AutoTick-Tick_32"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-SrcSubsetTick_29"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-SrcSubsetTick_38"
+    value {
+      bn_in_op2lbi {
+        key: "in_0"
+        value {
+          op_name: "System-AutoTick-Tick_40"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-SrcSubsetTick_38"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-Tick_32"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-Tick_32"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-SourceTick_31"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-Tick_34"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-Tick_34"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-DstSubsetTick_33"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-Tick_40"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-Tick_40"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-SourceTick_39"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-AutoTick-Tick_42"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-AutoTick-Tick_42"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick_0"
+        value {
+          op_name: "System-AutoTick-DstSubsetTick_41"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+  op_name2arg_signature {
+    key: "System-Push-ForeignInput_2"
+    value {
+      bn_in_op2lbi {
+        key: "out"
+        value {
+          op_name: "System-Push-ForeignInput_2"
+          blob_name: "out"
+        }
+      }
+      bn_in_op2lbi {
+        key: "tick"
+        value {
+          op_name: "System-AutoTick-Prepend-DeviceTick_28"
+          blob_name: "out"
+        }
+      }
+    }
+  }
+}

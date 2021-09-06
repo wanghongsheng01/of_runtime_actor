@@ -1,0 +1,72 @@
+net {
+  op {
+    name: "System-Push-ForeignInput_2"
+    foreign_input_conf {
+      out: "out"
+      blob_conf {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+        parallel_distribution {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+      ofblob_buffer_name: "ForeignInput-System-Push-Input_0"
+    }
+  }
+  op {
+    name: "Input_0"
+    output_conf {
+      in: "System-Push-ForeignInput_2/out"
+      out: "out"
+      blob_conf {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+        parallel_distribution {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+}
+placement {
+  placement_group {
+    op_set {
+      op_name: "System-Push-ForeignInput_2"
+      op_name: "Input_0"
+    }
+    parallel_conf {
+      device_name: "0:0"
+      device_tag: "cpu"
+    }
+  }
+}
+job_conf {
+  job_name: "System-Push-Input_0"
+  predict_conf {
+  }
+  default_data_type: kFloat
+  flag_name2flag_value {
+    key: "__is_user_function__"
+    value {
+      at_bool: false
+    }
+  }
+}
+job_parallel_view_conf {
+}

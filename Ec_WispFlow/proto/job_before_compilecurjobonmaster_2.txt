@@ -1,0 +1,59 @@
+net {
+  op {
+    name: "Return_1"
+    input_conf {
+      out: "out"
+      blob_conf {
+        shape {
+          dim: 1
+          dim: 1
+        }
+        data_type: kFloat
+        is_dynamic: false
+        parallel_distribution {
+          sbp_parallel {
+            split_parallel {
+              axis: 0
+            }
+          }
+        }
+      }
+    }
+  }
+  op {
+    name: "System-Pull-ForeignOutput_3"
+    foreign_output_conf {
+      in: "Return_1/out"
+      ofblob_buffer_name: "ForeignOutput-System-Pull-Return_1"
+    }
+  }
+}
+placement {
+  placement_group {
+    op_set {
+      op_name: "Return_1"
+      op_name: "System-Pull-ForeignOutput_3"
+    }
+    parallel_conf {
+      device_name: "0:0"
+      device_tag: "cpu"
+      hierarchy {
+        dim: 1
+      }
+    }
+  }
+}
+job_conf {
+  job_name: "System-Pull-Return_1"
+  predict_conf {
+  }
+  default_data_type: kFloat
+  flag_name2flag_value {
+    key: "__is_user_function__"
+    value {
+      at_bool: false
+    }
+  }
+}
+job_parallel_view_conf {
+}

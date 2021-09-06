@@ -1,0 +1,4188 @@
+task {
+  task_type: kDeviceTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822120
+  job_id: 2
+  task_set_info {
+    chain_id: 6
+    order_in_graph: 6
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-Prepend-DeviceTick_44"
+            device_tag: "cpu"
+            device_tick_conf {
+              tick: "System-AutoTick-SrcSubsetTick_45/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-Prepend-DeviceTick_44"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-SrcSubsetTick_45"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 65
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 66
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 65
+      producer_task_id: 1099515822120
+      consumer_task_id: 1099511627780
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-Prepend-DeviceTick_44"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 54
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 66
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822128
+  job_id: 2
+  task_set_info {
+    chain_id: 7
+    order_in_graph: 7
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-PrependTick_52"
+            device_tag: "cpu"
+            tick_conf {
+              tick: "System-AutoTick-SrcSubsetTick_54/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-PrependTick_52"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-SrcSubsetTick_54"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 73
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 75
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 73
+      producer_task_id: 1099515822128
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-PrependTick_52"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 56
+      mem_block_offset: 0
+    }
+  }
+  produced_regst_desc {
+    key: "out_ctrl_57"
+    value {
+      regst_desc_id: 57
+      producer_task_id: 1099515822128
+      consumer_task_id: 1099511627780
+      min_register_num: 1
+      max_register_num: 2147483647
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        ctrl_regst_desc {
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 57
+      mem_block_offset: 0
+    }
+  }
+  produced_regst_desc {
+    key: "out_ctrl_58"
+    value {
+      regst_desc_id: 58
+      producer_task_id: 1099515822128
+      consumer_task_id: 1099511627781
+      min_register_num: 1
+      max_register_num: 2147483647
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        ctrl_regst_desc {
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 55
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 75
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kDeviceTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822129
+  job_id: 2
+  task_set_info {
+    chain_id: 10
+    order_in_graph: 10
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-AppendDeviceTick_53"
+            device_tag: "cpu"
+            ctrl_in_op_name: "Return_1"
+            ctrl_in_op_name: "System-Pull-ForeignOutput_3"
+            device_tick_conf {
+              out: "out"
+              time_shape {
+                dim: 1
+                dim: 1
+              }
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-AppendDeviceTick_53"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 74
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 74
+      producer_task_id: 1099515822129
+      consumer_task_id: 1099515822133
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-AppendDeviceTick_53"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 58
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in_ctrl"
+    value {
+      regst_desc_id: 60
+      regst_desc_id: 61
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kSourceTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822123
+  job_id: 2
+  task_set_info {
+    chain_id: 0
+    order_in_graph: 0
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-SourceTick_47"
+            device_tag: "cpu"
+            source_tick_conf {
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-SourceTick_47"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 68
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 68
+      producer_task_id: 1099515822123
+      consumer_task_id: 1099515822124
+      min_register_num: 2
+      max_register_num: 2
+      register_num: 2
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-SourceTick_47"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 59
+      mem_block_offset: 0
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kForeignOutput
+  machine_id: 0
+  thrd_id: 524288
+  task_id: 1099511627781
+  job_id: 2
+  task_set_info {
+    chain_id: 9
+    order_in_graph: 9
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kFloat
+        dtype_signature {
+          name2dtype {
+            key: "in"
+            value: kFloat
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "in"
+          op_conf {
+            name: "System-Pull-ForeignOutput_3"
+            device_tag: "cpu"
+            ctrl_in_op_name: "System-AutoTick-PrependTick_52"
+            foreign_output_conf {
+              in: "Return_1/out"
+              ofblob_buffer_name: "ForeignOutput-System-Pull-Return_1"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "in"
+              value {
+                op_name: "Return_1"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "in"
+              value {
+                requires_grad: true
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "in"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "in"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "in"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "in"
+              value {
+                shape {
+                  dim: 1
+                  dim: 1
+                }
+                data_type: kFloat
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "in"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "in"
+        value: 62
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out_ctrl_59"
+    value {
+      regst_desc_id: 59
+      producer_task_id: 1099511627781
+      consumer_task_id: 1099515822122
+      min_register_num: 1
+      max_register_num: 2147483647
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        ctrl_regst_desc {
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 61
+      mem_block_offset: 0
+    }
+  }
+  produced_regst_desc {
+    key: "out_ctrl_61"
+    value {
+      regst_desc_id: 61
+      producer_task_id: 1099511627781
+      consumer_task_id: 1099515822129
+      min_register_num: 1
+      max_register_num: 2147483647
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        ctrl_regst_desc {
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 60
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 62
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in_ctrl"
+    value {
+      regst_desc_id: 58
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822127
+  job_id: 2
+  task_set_info {
+    chain_id: 17
+    order_in_graph: 17
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-SinkTick_51"
+            device_tag: "cpu"
+            sink_tick_conf {
+              tick: "System-AutoTick-Tick_50/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-SinkTick_51"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-Tick_50"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 72
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 71
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 72
+      producer_task_id: 1099515822127
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-SinkTick_51"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 62
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 71
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kDeviceTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822122
+  job_id: 2
+  task_set_info {
+    chain_id: 11
+    order_in_graph: 11
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-AppendDeviceTick_46"
+            device_tag: "cpu"
+            ctrl_in_op_name: "System-Pull-ForeignOutput_3"
+            device_tick_conf {
+              out: "out"
+              time_shape {
+                dim: 1
+                dim: 1
+              }
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-AppendDeviceTick_46"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 67
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 67
+      producer_task_id: 1099515822122
+      consumer_task_id: 1099515822125
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-AppendDeviceTick_46"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 63
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in_ctrl"
+    value {
+      regst_desc_id: 59
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kDstSubsetTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822125
+  job_id: 2
+  task_set_info {
+    chain_id: 13
+    order_in_graph: 13
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "in_0"
+            value: kUInt8
+          }
+          name2dtype {
+            key: "in_1"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "in_0"
+          input_bns: "in_1"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-DstSubsetTick_49"
+            device_tag: "cpu"
+            dst_subset_tick_conf {
+              in: "System-AutoTick-SrcSubsetTick_45/out"
+              in: "System-AutoTick-AppendDeviceTick_46/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "in_0"
+              value {
+                op_name: "System-AutoTick-SrcSubsetTick_45"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "in_1"
+              value {
+                op_name: "System-AutoTick-AppendDeviceTick_46"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-DstSubsetTick_49"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "in_0"
+              value {
+                requires_grad: false
+              }
+            }
+            ibn2input_blob_modifier {
+              key: "in_1"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "in_0"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "in_1"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "in_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "in_1"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "in_0"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "in_1"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "in_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "in_1"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "in_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "in_1"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "in_0"
+        value: 66
+      }
+      bn_in_op2regst_desc_id {
+        key: "in_1"
+        value: 67
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 70
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 70
+      producer_task_id: 1099515822125
+      consumer_task_id: 1099515822126
+      min_register_num: 2
+      max_register_num: 2
+      register_num: 2
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-DstSubsetTick_49"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 64
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 66
+      regst_desc_id: 67
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822126
+  job_id: 2
+  task_set_info {
+    chain_id: 15
+    order_in_graph: 15
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-Tick_50"
+            device_tag: "cpu"
+            tick_conf {
+              tick: "System-AutoTick-DstSubsetTick_49/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-Tick_50"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-DstSubsetTick_49"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 71
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 70
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 71
+      producer_task_id: 1099515822126
+      consumer_task_id: 1099515822127
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-Tick_50"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 65
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 70
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822124
+  job_id: 2
+  task_set_info {
+    chain_id: 2
+    order_in_graph: 2
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-Tick_48"
+            device_tag: "cpu"
+            tick_conf {
+              tick: "System-AutoTick-SourceTick_47/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-Tick_48"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-SourceTick_47"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 69
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 68
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 69
+      producer_task_id: 1099515822124
+      consumer_task_id: 1099515822121
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-Tick_48"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 66
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 68
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kNormalForward
+  machine_id: 0
+  thrd_id: 524288
+  task_id: 1099511627780
+  job_id: 2
+  task_set_info {
+    chain_id: 8
+    order_in_graph: 8
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kFloat
+        dtype_signature {
+          name2dtype {
+            key: "tick"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute_ref: "Return_1"
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 62
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick"
+        value: 65
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "__out"
+    value {
+      regst_desc_id: 62
+      producer_task_id: 1099511627780
+      consumer_task_id: 1099511627781
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "Return_1"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+                dim: 1
+              }
+              data_type: kFloat
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 68
+      mem_block_offset: 0
+    }
+  }
+  produced_regst_desc {
+    key: "out_ctrl_60"
+    value {
+      regst_desc_id: 60
+      producer_task_id: 1099511627780
+      consumer_task_id: 1099515822129
+      min_register_num: 1
+      max_register_num: 2147483647
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        ctrl_regst_desc {
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 67
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 65
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in_ctrl"
+    value {
+      regst_desc_id: 57
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822134
+  job_id: 2
+  task_set_info {
+    chain_id: 14
+    order_in_graph: 14
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-Tick_58"
+            device_tag: "cpu"
+            tick_conf {
+              tick: "System-AutoTick-DstSubsetTick_57/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-Tick_58"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-DstSubsetTick_57"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 79
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 78
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 79
+      producer_task_id: 1099515822134
+      consumer_task_id: 1099515822135
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-Tick_58"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 69
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 78
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822135
+  job_id: 2
+  task_set_info {
+    chain_id: 16
+    order_in_graph: 16
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-SinkTick_59"
+            device_tag: "cpu"
+            sink_tick_conf {
+              tick: "System-AutoTick-Tick_58/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-SinkTick_59"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-Tick_58"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 80
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 79
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 80
+      producer_task_id: 1099515822135
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-SinkTick_59"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 70
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 79
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kDstSubsetTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822133
+  job_id: 2
+  task_set_info {
+    chain_id: 12
+    order_in_graph: 12
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "in_0"
+            value: kUInt8
+          }
+          name2dtype {
+            key: "in_1"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "in_0"
+          input_bns: "in_1"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-DstSubsetTick_57"
+            device_tag: "cpu"
+            dst_subset_tick_conf {
+              in: "System-AutoTick-SrcSubsetTick_54/out"
+              in: "System-AutoTick-AppendDeviceTick_53/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "in_0"
+              value {
+                op_name: "System-AutoTick-SrcSubsetTick_54"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "in_1"
+              value {
+                op_name: "System-AutoTick-AppendDeviceTick_53"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-DstSubsetTick_57"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "in_0"
+              value {
+                requires_grad: false
+              }
+            }
+            ibn2input_blob_modifier {
+              key: "in_1"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "in_0"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "in_1"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "in_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "in_1"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "in_0"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "in_1"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "in_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "in_1"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "in_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "in_1"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "in_0"
+        value: 75
+      }
+      bn_in_op2regst_desc_id {
+        key: "in_1"
+        value: 74
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 78
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 78
+      producer_task_id: 1099515822133
+      consumer_task_id: 1099515822134
+      min_register_num: 2
+      max_register_num: 2
+      register_num: 2
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-DstSubsetTick_57"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 71
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 75
+      regst_desc_id: 74
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kSrcSubsetTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822121
+  job_id: 2
+  task_set_info {
+    chain_id: 4
+    order_in_graph: 4
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "in_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "in_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-SrcSubsetTick_45"
+            device_tag: "cpu"
+            src_subset_tick_conf {
+              in: "System-AutoTick-Tick_48/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "in_0"
+              value {
+                op_name: "System-AutoTick-Tick_48"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-SrcSubsetTick_45"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "in_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "in_0"
+              value: false
+            }
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "in_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "in_0"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "in_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "in_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "in_0"
+        value: 69
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 66
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 66
+      producer_task_id: 1099515822121
+      consumer_task_id: 1099515822125
+      consumer_task_id: 1099515822120
+      min_register_num: 2
+      max_register_num: 2
+      register_num: 2
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-SrcSubsetTick_45"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 72
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 69
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kSrcSubsetTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822130
+  job_id: 2
+  task_set_info {
+    chain_id: 5
+    order_in_graph: 5
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "in_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "in_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-SrcSubsetTick_54"
+            device_tag: "cpu"
+            src_subset_tick_conf {
+              in: "System-AutoTick-Tick_56/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "in_0"
+              value {
+                op_name: "System-AutoTick-Tick_56"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-SrcSubsetTick_54"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "in_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "in_0"
+              value: false
+            }
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "in_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "in_0"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "in_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "in_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "in_0"
+        value: 77
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 75
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 75
+      producer_task_id: 1099515822130
+      consumer_task_id: 1099515822133
+      consumer_task_id: 1099515822128
+      min_register_num: 2
+      max_register_num: 2
+      register_num: 2
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-SrcSubsetTick_54"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 73
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 77
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kSourceTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822131
+  job_id: 2
+  task_set_info {
+    chain_id: 1
+    order_in_graph: 1
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-SourceTick_55"
+            device_tag: "cpu"
+            source_tick_conf {
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-SourceTick_55"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: false
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 76
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 76
+      producer_task_id: 1099515822131
+      consumer_task_id: 1099515822132
+      min_register_num: 2
+      max_register_num: 2
+      register_num: 2
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-SourceTick_55"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 74
+      mem_block_offset: 0
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+task {
+  task_type: kTick
+  machine_id: 0
+  thrd_id: 524290
+  task_id: 1099515822132
+  job_id: 2
+  task_set_info {
+    chain_id: 3
+    order_in_graph: 3
+  }
+  exec_sequence {
+    exec_node {
+      kernel_conf {
+        data_type: kUInt8
+        dtype_signature {
+          name2dtype {
+            key: "tick_0"
+            value: kUInt8
+          }
+        }
+        parallel_ctx {
+          parallel_id: 0
+          parallel_num: 1
+        }
+        op_attribute {
+          input_bns: "tick_0"
+          output_bns: "out"
+          op_conf {
+            name: "System-AutoTick-Tick_56"
+            device_tag: "cpu"
+            tick_conf {
+              tick: "System-AutoTick-SourceTick_55/out"
+              out: "out"
+            }
+          }
+          arg_signature {
+            bn_in_op2lbi {
+              key: "out"
+              value {
+                op_name: "System-AutoTick-Tick_56"
+                blob_name: "out"
+              }
+            }
+            bn_in_op2lbi {
+              key: "tick_0"
+              value {
+                op_name: "System-AutoTick-SourceTick_55"
+                blob_name: "out"
+              }
+            }
+          }
+          arg_modifier_signature {
+            ibn2input_blob_modifier {
+              key: "tick_0"
+              value {
+                requires_grad: false
+              }
+            }
+            obn2output_blob_modifier {
+              key: "out"
+              value {
+                requires_grad: false
+              }
+            }
+          }
+          blob_last_used_signature {
+            bn_in_op2blob_last_used {
+              key: "out"
+              value: true
+            }
+            bn_in_op2blob_last_used {
+              key: "tick_0"
+              value: true
+            }
+          }
+          sbp_signature {
+            bn_in_op2sbp_parallel {
+              key: "out"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+            bn_in_op2sbp_parallel {
+              key: "tick_0"
+              value {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          mirrored_signature {
+            bn_in_op2opt_mirrored_parallel {
+              key: "out"
+              value {
+              }
+            }
+            bn_in_op2opt_mirrored_parallel {
+              key: "tick_0"
+              value {
+              }
+            }
+          }
+          logical_blob_desc_signature {
+            bn_in_op2blob_desc {
+              key: "out"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+            bn_in_op2blob_desc {
+              key: "tick_0"
+              value {
+                shape {
+                  dim: 1
+                }
+                data_type: kUInt8
+                is_dynamic: false
+              }
+            }
+          }
+          parallel_conf_signature {
+            op_parallel_conf {
+              device_name: "0:0"
+              device_tag: "cpu"
+              hierarchy {
+                dim: 1
+              }
+            }
+          }
+          parallel_distribution_signature {
+            bn_in_op2parallel_distribution {
+              key: "out"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+            bn_in_op2parallel_distribution {
+              key: "tick_0"
+              value {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      bn_in_op2regst_desc_id {
+        key: "out"
+        value: 77
+      }
+      bn_in_op2regst_desc_id {
+        key: "tick_0"
+        value: 76
+      }
+    }
+  }
+  produced_regst_desc {
+    key: "out"
+    value {
+      regst_desc_id: 77
+      producer_task_id: 1099515822132
+      consumer_task_id: 1099515822130
+      min_register_num: 1
+      max_register_num: 1
+      register_num: 1
+      mem_case {
+        host_mem {
+        }
+      }
+      regst_desc_type {
+        data_regst_desc {
+          lbi2blob_desc {
+            lbi {
+              op_name: "System-AutoTick-Tick_56"
+              blob_name: "out"
+            }
+            blob_desc {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+          time_shape {
+            dim: 1
+            dim: 1
+          }
+        }
+      }
+      enable_reuse_mem: false
+      mem_block_id: 75
+      mem_block_offset: 0
+    }
+  }
+  consumed_regst_desc_id {
+    key: "in"
+    value {
+      regst_desc_id: 76
+    }
+  }
+  parallel_ctx {
+    parallel_id: 0
+    parallel_num: 1
+  }
+}
+block_chunk_list {
+  mem_block {
+    mem_block_id: 75
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 74
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 1040
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 73
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 1040
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 72
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 1040
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 71
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 1040
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 70
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 69
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 68
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 528
+    thrd_id_hint: 524288
+  }
+  mem_block {
+    mem_block_id: 67
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 0
+    thrd_id_hint: 524288
+  }
+  mem_block {
+    mem_block_id: 66
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 65
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 58
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 57
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 0
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 56
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 54
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 55
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 0
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 59
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 1040
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 60
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 0
+    thrd_id_hint: 524288
+  }
+  mem_block {
+    mem_block_id: 61
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 0
+    thrd_id_hint: 524288
+  }
+  mem_block {
+    mem_block_id: 62
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 63
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 520
+    thrd_id_hint: 524290
+  }
+  mem_block {
+    mem_block_id: 64
+    job_id: 2
+    machine_id: 0
+    mem_case {
+      host_mem {
+      }
+    }
+    enable_reuse_mem: false
+    mem_size: 1040
+    thrd_id_hint: 524290
+  }
+}
+job_confs {
+  job_id2job_conf {
+    key: 2
+    value {
+      job_name: "System-Pull-Return_1"
+      predict_conf {
+      }
+      default_data_type: kFloat
+      flag_name2flag_value {
+        key: "__is_user_function__"
+        value {
+          at_bool: false
+        }
+      }
+    }
+  }
+}
+collective_boxing_plan {
+  job_id2request_set {
+    key: 2
+    value {
+    }
+  }
+}
+job_id2op_attribute_ref_table {
+  key: 2
+  value {
+    op_name2op_attribute {
+      key: "Return_1"
+      value {
+        input_bns: "tick"
+        output_bns: "out"
+        op_conf {
+          name: "Return_1"
+          device_tag: "cpu"
+          ctrl_in_op_name: "System-AutoTick-PrependTick_52"
+          input_conf {
+            tick: "System-AutoTick-Prepend-DeviceTick_44/out"
+            out: "out"
+            blob_conf {
+              shape {
+                dim: 1
+                dim: 1
+              }
+              data_type: kFloat
+              is_dynamic: false
+              parallel_distribution {
+                sbp_parallel {
+                  split_parallel {
+                    axis: 0
+                  }
+                }
+              }
+            }
+          }
+        }
+        arg_signature {
+          bn_in_op2lbi {
+            key: "out"
+            value {
+              op_name: "Return_1"
+              blob_name: "out"
+            }
+          }
+          bn_in_op2lbi {
+            key: "tick"
+            value {
+              op_name: "System-AutoTick-Prepend-DeviceTick_44"
+              blob_name: "out"
+            }
+          }
+        }
+        arg_modifier_signature {
+          ibn2input_blob_modifier {
+            key: "tick"
+            value {
+              requires_grad: false
+            }
+          }
+          obn2output_blob_modifier {
+            key: "out"
+            value {
+              is_mutable: true
+              requires_grad: false
+              header_infered_before_compute: false
+            }
+          }
+        }
+        blob_last_used_signature {
+          bn_in_op2blob_last_used {
+            key: "out"
+            value: false
+          }
+          bn_in_op2blob_last_used {
+            key: "tick"
+            value: false
+          }
+        }
+        sbp_signature {
+          bn_in_op2sbp_parallel {
+            key: "out"
+            value {
+              split_parallel {
+                axis: 0
+              }
+            }
+          }
+          bn_in_op2sbp_parallel {
+            key: "tick"
+            value {
+              broadcast_parallel {
+              }
+            }
+          }
+        }
+        mirrored_signature {
+          bn_in_op2opt_mirrored_parallel {
+            key: "out"
+            value {
+            }
+          }
+          bn_in_op2opt_mirrored_parallel {
+            key: "tick"
+            value {
+            }
+          }
+        }
+        logical_blob_desc_signature {
+          bn_in_op2blob_desc {
+            key: "out"
+            value {
+              shape {
+                dim: 1
+                dim: 1
+              }
+              data_type: kFloat
+              is_dynamic: false
+            }
+          }
+          bn_in_op2blob_desc {
+            key: "tick"
+            value {
+              shape {
+                dim: 1
+              }
+              data_type: kUInt8
+              is_dynamic: false
+            }
+          }
+        }
+        parallel_conf_signature {
+          op_parallel_conf {
+            device_name: "0:0"
+            device_tag: "cpu"
+            hierarchy {
+              dim: 1
+            }
+          }
+        }
+        parallel_distribution_signature {
+          bn_in_op2parallel_distribution {
+            key: "out"
+            value {
+              sbp_parallel {
+                split_parallel {
+                  axis: 0
+                }
+              }
+            }
+          }
+          bn_in_op2parallel_distribution {
+            key: "tick"
+            value {
+              sbp_parallel {
+                broadcast_parallel {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
